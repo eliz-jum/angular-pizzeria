@@ -1,0 +1,52 @@
+/*adds border to elements inside body*/
+body * {
+	border: solid 1px gray;
+}
+
+body {
+	margin: 0;
+}
+
+#site {
+	width: 80%;
+	margin: 0 auto;
+}
+
+#banner {
+	height: 10em;
+}
+
+#flex {
+	display: flex;
+	flex-direction: row;
+}
+
+#contener {
+	display: flex;
+	flex-direction: column;
+	width: 70%;
+}
+
+#navigation {
+	display: flex;
+	justify-content: center;
+	list-style: none;
+	max-width: 100%;
+	padding: 0;
+	margin: 0;
+}
+#navigation li {
+	width: 10rem;
+	height: 3em;
+	margin: 1em 1em;
+}
+
+#content {
+	width: 100%;
+	height: 60vh;
+	display: block;
+}
+
+#basket {
+	width: 30%;
+}
