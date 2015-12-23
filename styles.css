@@ -21,7 +21,7 @@ body {
 	flex-direction: row;
 }
 
-#contener {
+#container {
 	display: flex;
 	flex-direction: column;
 	width: 70%;
@@ -35,6 +35,7 @@ body {
 	padding: 0;
 	margin: 0;
 }
+
 #navigation li {
 	width: 10rem;
 	height: 3em;
