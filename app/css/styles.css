@@ -27,13 +27,18 @@ body {
 	width: 70%;
 }
 
-#navigation {
+#navigation, #pizzaList li {
 	display: flex;
 	justify-content: center;
 	list-style: none;
 	max-width: 100%;
-	padding: 0;
+	
 	margin: 0;
+}
+ul
+{
+    list-style: none;
+    padding: 0;
 }
 
 #navigation li {
@@ -42,12 +47,22 @@ body {
 	margin: 1em 1em;
 }
 
-#content {
+.content {
+    display: none;
 	width: 100%;
 	height: 60vh;
-	display: block;
+}
+#home {
+    display: block;
 }
 
 #basket {
 	width: 30%;
+}
+
+.pizzaName {
+    width: 55%;
+}
+.pizzaPrice, .pizzaNumber, pizzaRemoveButton {
+    width: 15%;
 }
