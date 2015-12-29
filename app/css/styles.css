@@ -27,7 +27,7 @@ body {
 	width: 70%;
 }
 
-#navigation, #pizzaList li {
+#navigation, #basketList li, #home li {
 	display: flex;
 	justify-content: center;
 	list-style: none;
@@ -60,9 +60,16 @@ ul
 	width: 30%;
 }
 
-.pizzaName {
+.basketName {
     width: 55%;
 }
-.pizzaPrice, .pizzaNumber, pizzaRemoveButton {
+.basketPrice, .basketNumber, basketRemoveButton {
     width: 15%;
+}
+img {
+    width: 5rem;
+    height: 5rem;
+}
+h3 {
+    margin: 0;
 }

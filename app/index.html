@@ -25,8 +25,26 @@
 				</ul>
 
 				<div class="content" id="home">
-					<!--menu, finalize, contact etc.-->
-					home
+					<ul id="pizzaList">
+                        <li>
+                            <img class="pizzaPicture"/>
+                            <div class="pizzaDetails"> 
+                                <h3 class="pizzaTitle">
+                                    title
+                                </h3>
+                                <div class="pizzaIngredients">
+                                    ingredients
+                                </div>
+                                <div class="pizzaPrice">
+                                    price
+                                </div>
+                            </div>
+ 
+                            <button class="pizzaAddButton">Add</button>
+                        </li>
+                        
+                
+                </ul>
 				</div>
                 
                 <div class="content" id="order">
@@ -41,15 +59,15 @@
 			</div>
 
 			<div id="basket">
-				<ul id="pizzaList">
+				<ul id="basketList">
                     <li>
-                        <div class="pizzaName">pizza1</div>
-                        <div class="pizzaPrice">cena</div>
-                        <input class="pizzaNumber" type="number" value="1"/>
-                        <button class="pizzaRemoveButton">X</button>
+                        <div class="basketName">pizza1</div>
+                        <div class="basketPrice">cena</div>
+                        <input class="basketNumber" type="number" value="1"/>
+                        <button class="basketRemoveButton">X</button>
                     </li>
                     <li>
-                        <div class="pizzaName">pizza2</div>
+                        <div class="basketName">pizza2</div>
                     </li>
                 
                 </ul>
