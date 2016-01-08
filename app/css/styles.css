@@ -1,4 +1,4 @@
-/*adds border to elements inside body*/
+	/*adds border to elements inside body*/
 body * {
 	border: solid 1px gray;
 }
@@ -24,7 +24,7 @@ body {
 #container {
 	display: flex;
 	flex-direction: column;
-	width: 70%;
+	width: 100%;
 }
 
 #navigation, #basketList li, #home li {
@@ -48,12 +48,15 @@ ul
 }
 
 .content {
-    display: none;
 	width: 100%;
 	height: 60vh;
 }
+#contact{
+	display: block;
+}
 #home {
-    display: block;
+    /*display: block;*/
+	display: block;
 }
 
 #basket {
@@ -64,6 +67,7 @@ ul
     width: 55%;
 }
 .basketPrice, .basketNumber, basketRemoveButton {
+	display: none;
     width: 15%;
 }
 img {

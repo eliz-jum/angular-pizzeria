@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="pizzeria">
 
 <head>
 	<meta charset="utf-8">
@@ -12,66 +12,29 @@
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 </head>
-
 <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script type="text/javascript" src="libs/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="angularControllers/OrderCtrl.js"></script>
+
+    <p>{{ "angular " + "działa"}}</p>
+
 	<div id="site">
 		<div id="banner">Banner</div>
 		<div id="flex">
 			<div id="container">
 				<ul id="navigation">
-					<li>Home</li>
-					<li>Order</li>
-					<li>Contact</li>
+					<li>    <a ui-sref="main">Home</a> </li>
+					<li>    <a ui-sref="order">Order</a> </li>
+					<li>    <a ui-sref="contact">Contact</a> </li>
 				</ul>
 
-				<div class="content" id="home">
-					<ul id="pizzaList">
-                        <li>
-                            <img class="pizzaPicture"/>
-                            <div class="pizzaDetails"> 
-                                <h3 class="pizzaTitle">
-                                    title
-                                </h3>
-                                <div class="pizzaIngredients">
-                                    ingredients
-                                </div>
-                                <div class="pizzaPrice">
-                                    price
-                                </div>
-                            </div>
- 
-                            <button class="pizzaAddButton">Add</button>
-                        </li>
-                        
-                
-                </ul>
-				</div>
-                
-                <div class="content" id="order">
-					<!--menu, finalize, contact etc.-->
-					order
-				</div>
-                
-                <div class="content" id="contact">
-					<!--menu, finalize, contact etc.-->
-					Contact
-				</div>
+                <div ui-view></div>
+
 			</div>
 
-			<div id="basket">
-				<ul id="basketList">
-                    <li>
-                        <div class="basketName">pizza1</div>
-                        <div class="basketPrice">cena</div>
-                        <input class="basketNumber" type="number" value="1"/>
-                        <button class="basketRemoveButton">X</button>
-                    </li>
-                    <li>
-                        <div class="basketName">pizza2</div>
-                    </li>
-                
-                </ul>
-			</div>
+
 		</div>
 	</div>
 
