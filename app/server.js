@@ -16,8 +16,14 @@ var app = express(),
     orders = {},
     i = 0;
 
-app.use(express.static(__dirname + '/../build/'));
-
+//app.use(express.static(__dirname + '/../build/'));
+app.use(express.static(__dirname + '/'));
+/*
+ Nie wiem czemu poniższe nie zadziałało gdy server.js był w folderze
+ angular-pizzeria/server dlatego przeniosłem server.js do folderu
+ /angular-pizzeria/app
+ app.use(express.static(__dirname + '/../'));
+ */
 app.use(bodyParser.urlencoded({
     extended: false
 }));
