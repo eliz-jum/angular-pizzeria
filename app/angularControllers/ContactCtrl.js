@@ -1,28 +1,18 @@
 /**
  * Created by siulkilulki on 08.01.16.
  */
-angular.module('pizzeria').controller('ContactController', function($scope, $state, $stateParams){
-    $scope.cos = 'wysiwetla';
-    /*$http.get('/contact').success(function(data){
-        $scope.jsonContact = data;
-
-    });*/
-} );
-/*
-data.name
-name: 'Pizzeria',
-    address: {
-    street: 'Św. Marcin 1',
-        city: 'Poznań'
-},
-phone: '123-456-789',
-    hours: '12:00 - 22:00'*/
-
-/*
-angular.module('pizzeria').controller('ContactController', ['$http', function($scope, $state, $stateParams, $http){
-    $scope.cos = 'wysiwetla';
+angular.module('pizzeria').controller('ContactController', function($scope, $state, $stateParams, $http){
+    $scope.name = '';
+    $scope.street = '';
+    $scope.city = '';
+    $scope.phone = '';
+    $scope.hours = '';
     $http.get('/contact').success(function(data){
-        $scope.jsonContact = data;
-
+        $scope.name = data.name;
+        $scope.street = data.address.street;
+        $scope.city = data.address.city;
+        $scope.phone = data.phone;
+        $scope.hours = data.hours;
     });
-} ]);*/
+} );
+
