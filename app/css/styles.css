@@ -1,10 +1,30 @@
-	/*adds border to elements inside body*/
+/*selektory od ogółu do szczegółu,
+a potem układem na stronie*/
+/*adds border to elements inside body*/
 body * {
 	border: solid 1px gray;
 }
-
 body {
 	margin: 0;
+}
+
+h3 {
+    margin: 0;
+}
+
+img {
+    width: 5rem;
+    height: 5rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.flex {
+	display: flex;
+	flex-direction: row;
 }
 
 #site {
@@ -16,64 +36,44 @@ body {
 	height: 10em;
 }
 
-#flex {
-	display: flex;
-	flex-direction: row;
-}
-
 #container {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
 }
 
-#navigation, #basketList li, #home li {
+#navigation, #basketList li, #pizzaList li {
 	display: flex;
 	justify-content: center;
 	list-style: none;
 	max-width: 100%;
-	
 	margin: 0;
 }
-ul
-{
-    list-style: none;
-    padding: 0;
-}
-
 #navigation li {
 	width: 10rem;
 	height: 3em;
 	margin: 1em 1em;
 }
 
-.content {
-	width: 100%;
-	height: 60vh;
+#pizzaList {
+	width: 70%;
 }
-#contact{
-	display: block;
-}
-#home {
-    /*display: block;*/
-	display: block;
+#basketList li {
+	flex-direction: row;
 }
 
 #basket {
 	width: 30%;
 }
-
 .basketName {
     width: 55%;
 }
-.basketPrice, .basketNumber, basketRemoveButton {
-	display: none;
+.basketPrice, .basketNumber, .basketRemoveButton {
     width: 15%;
 }
-img {
-    width: 5rem;
-    height: 5rem;
+
+#contact {
+	display: block;
 }
-h3 {
-    margin: 0;
-}
+
+

@@ -1,4 +1,4 @@
-<div class="content" id="home">
+<div class="flex">
     <ul id="pizzaList">
         <li>
             <img class="pizzaPicture"/>
@@ -17,18 +17,21 @@
             <button class="pizzaAddButton">Add</button>
         </li>
     </ul>
-</div>
-<div id="basket">
-    <ul id="basketList">
-        <li>
-            <div class="basketName">pizza1</div>
-            <div class="basketPrice">cena</div>
-            <input class="basketNumber" type="number" value="1"/>
-            <button class="basketRemoveButton">X</button>
-        </li>
-        <li>
-            <div class="basketName">pizza2</div>
-        </li>
+    <div id="basket">
+        <ul id="basketList">
+            <li class="flex">
+                <div class="basketName">pizza1</div>
+                <div class="basketPrice">cena</div>
+                <input class="basketNumber" type="number" value="1"/>
+                <button class="basketRemoveButton">X</button>
+            </li>
+            <li>
+                <div class="basketName">pizza2</div>
+                <div class="basketPrice">cena</div>
+                <input class="basketNumber" type="number" value="1"/>
+                <button class="basketRemoveButton">X</button>
+            </li>
 
-    </ul>
+        </ul>
+    </div>
 </div>
