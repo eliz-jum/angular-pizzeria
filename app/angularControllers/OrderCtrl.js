@@ -5,4 +5,7 @@ angular.module('pizzeria').controller('OrderController', function($scope, $state
     $scope.client = {};
     $scope.notes = '';
     /*$scope.canSubmit = true;*/
+    $scope.order = function() {
+    	$state.go('status');
+    }
 });
