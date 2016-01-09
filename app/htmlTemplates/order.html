@@ -1,20 +1,20 @@
-<div>
+<div ng-controller="OrderController">
 	<form>
 		First name:<br/>
-		<input type="text" name="firstName"/>
+		<input type="text" ng-model="firstName"/>
 		<br/>
 		Surname:<br/>
-		<input type="text" name="surname">
+		<input type="text" ng-model="surname">
 		<br/>
 		Phone number:<br/>
-		<input type="text" name="phoneNumber">
+		<input type="text" ng-model="phoneNumber">
 		<br/>
 		Address:<br/>
-		<input type="text" name="address">
+		<input type="text" ng-model="address">
 		<br/>
 		Notes:<br/>
-		<input type="text" name="notes">
+		<input type="text" ng-model="notes">
 		<br/>
-		<input type="submit" value="Order">
+		<input type="submit" value="Order" ng-click="">
 	</form>
 </div>

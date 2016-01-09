@@ -5,7 +5,7 @@ angular.module('pizzeria').controller('OrderController', function($scope, $state
     $scope.firstName = 'andriu';
     $scope.surname = 'anrzejewski';
     $scope.phoneNumber = 999888777;
-    $scope.adress = 'osiedle kolejowe';
+    $scope.address = 'osiedle kolejowe';
     $scope.notes = 'bez sosow';
     /*$scope.canSubmit = true;*/
 });
