@@ -1,0 +1,30 @@
+{
+  "name": "angular-pizzeria",
+  "version": "1.0.0",
+  "description": "pizzeria Web Application",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "gulp": "^3.9.0",
+    "gulp-batch": "^1.0.5",
+    "gulp-jshint": "^2.0.0",
+    "gulp-watch": "^4.3.5",
+    "jshint": "^2.8.0",
+    "lodash": "^3.10.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zofoklecja/angular-pizzeria.git"
+  },
+  "author": "Eliza Nowacka, Zofia Drozd, Dawid Jurkiewicz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zofoklecja/angular-pizzeria/issues"
+  },
+  "homepage": "https://github.com/zofoklecja/angular-pizzeria#readme"
+}
