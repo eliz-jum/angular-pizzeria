@@ -30,7 +30,7 @@
 		<input type="text" ng-model="notes" name="notes"/>
 		<br/>
 
-		<input type="submit" value="Order" ng-click="order()">
+		<a ui-sref="status/:"{{ id }}><input type="submit" value="Order" ng-disabled="form.$invalid" ng-click="order()"></a>
 	</form>
 	<div id="finalBasket">
         <ul id="finalBasketList">
