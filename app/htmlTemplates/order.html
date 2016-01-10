@@ -1,20 +1,35 @@
 <div ng-controller="OrderController">
-	<form>
+	<form name="form" id="orderForm">
 		First name:<br/>
-		<input type="text" ng-model="client.firstName"/>
+		<input type="text" ng-model="client.firstName" name="firstName"/>
 		<br/>
+
 		Surname:<br/>
-		<input type="text" ng-model="client.surname">
+		<input type="text" ng-model="client.surname" name="surname"/>
 		<br/>
+
 		Phone number:<br/>
-		<input type="text" ng-model="client.phoneNumber">
+		<input type="text" ng-model="client.phoneNumber" name="phoneNumber" required=""/>
 		<br/>
+		<div ng-show="form.$submitted || form.phoneNumber.$touched">
+			<span ng-show="form.phoneNumber.$error.required">
+				We need your number!
+			</span>
+		</div>
+
 		Address:<br/>
-		<input type="text" ng-model="client.address">
+		<input type="text" ng-model="client.address" name="address" required=""/>
 		<br/>
+		<div ng-show="form.$submitted || form.address.$touched">
+			<span ng-show="form.address.$error.required">
+				We need your address!
+			</span>
+		</div>
+
 		Notes:<br/>
-		<input type="text" ng-model="notes">
+		<input type="text" ng-model="notes" name="notes"/>
 		<br/>
+
 		<input type="submit" value="Order" ng-click="order()">
 	</form>
 </div>

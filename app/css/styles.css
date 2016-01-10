@@ -58,10 +58,10 @@ ul {
 #pizzaList {
 	width: 70%;
 }
+
 #basketList li {
 	flex-direction: row;
 }
-
 #basket {
 	width: 30%;
 }
@@ -70,6 +70,10 @@ ul {
 }
 .basketPrice, .basketNumber, .basketRemoveButton {
     width: 15%;
+}
+
+#orderForm span {
+	color: red;
 }
 
 #contact {

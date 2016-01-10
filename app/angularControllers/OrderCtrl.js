@@ -4,8 +4,9 @@
 angular.module('pizzeria').controller('OrderController', function($scope, $state, $stateParams){
     $scope.client = {};
     $scope.notes = '';
-    /*$scope.canSubmit = true;*/
     $scope.order = function() {
-    	$state.go('status');
-    }
+    	if ($scope.client.phoneNumber!=null && $scope.client.address!=null) {
+    		$state.go('status');
+    	}
+    };
 });
