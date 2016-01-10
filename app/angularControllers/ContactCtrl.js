@@ -13,6 +13,8 @@ angular.module('pizzeria').controller('ContactController', function($scope, $sta
         $scope.city = data.address.city;
         $scope.phone = data.phone;
         $scope.hours = data.hours;
+    }).error(function(data, status) {
+        console.error('http.get error in ContactCtrl.js', status, data);
     });
 } );
 
