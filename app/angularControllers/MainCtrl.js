@@ -14,6 +14,11 @@ angular.module('pizzeria').controller('MainController', function($scope, $state,
         $scope.total = basket.sumPrices();
     }
     
+    $scope.updateTotal = function(){
+        console.log("update total");
+        $scope.total = basket.sumPrices();
+    }
+    
     $http.get('/menu').success(function(data){
         $scope.menu = data;
         //console.log(data);

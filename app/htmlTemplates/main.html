@@ -23,7 +23,7 @@
             <li class="flex" ng-repeat="pizza in basketView track by $index">
                 <div class="basketName">{{pizza.name}}</div>
                 <div class="basketPrice">{{pizza.price}}</div>
-                <input class="basketNumber" type="number" min="1" value="1" ng-model="pizza.quantity"/>
+                <input ng-click="updateTotal()" class="basketNumber" type="number" min="1" value="1" ng-model="pizza.quantity"/>
                 <button ng-click="removePizza(basketView, $index)" class="basketRemoveButton">X</button>
             </li>
             

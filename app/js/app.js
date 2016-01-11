@@ -78,7 +78,7 @@ angular.module('pizzeria').factory('basket',function(){
         console.log("sumprices");
         basket.total=0;
         basket.listView.forEach(function(item){
-            basket.total+=item.price;
+            basket.total+=item.price*item.quantity;
         });
         basket.total = Math.round(basket.total * 100) / 100;
         return basket.total;
