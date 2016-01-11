@@ -1,4 +1,4 @@
-<div ng-controller="OrderController">
+<div ng-controller="OrderController" class="flex">
 	<form name="form" id="orderForm">
 		First name:<br/>
 		<input type="text" ng-model="client.firstName" name="firstName"/>
@@ -30,6 +30,21 @@
 		<input type="text" ng-model="notes" name="notes"/>
 		<br/>
 
-		<input type="submit" value="Order" ng-click="order()">
+		<a ui-sref="status/:"{{ id }}><input type="submit" value="Order" ng-disabled="form.$invalid" ng-click="order()"></a>
 	</form>
+	<div id="finalBasket">
+        <ul id="finalBasketList">
+            <li class="flex">
+                <div class="basketName">pizza1</div>
+                <div class="basketPrice">cena</div>
+                <div class="basketNumber">1</div>
+            </li>
+            <li class="flex">
+                <div class="basketName">pizza2</div>
+                <div class="basketPrice">cena</div>
+                <div class="basketNumber">1</div>
+            </li>
+
+        </ul>
+    </div>
 </div>
