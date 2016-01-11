@@ -13,12 +13,13 @@
                     {{pizza.price}}
                 </div>
             </div>
-
-            <button ng-click="addPizza({id: pizza.id})" class="pizzaAddButton">Add</button>
+            
+            <button class="pizzaAddButton" ng-click="addPizza({id: pizza.id, name: pizza.name, price: pizza.price, quantity: 1})">Add</button>
+            
         </li>
     </ul>
     <div id="basket">
-        <ul id="basketList">
+        <ul id="basketList" >
             <li class="flex">
                 <div class="basketName">pizza1</div>
                 <div class="basketPrice">cena</div>
