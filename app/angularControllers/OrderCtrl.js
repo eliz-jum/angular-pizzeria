@@ -1,16 +1,12 @@
-/**
- * Created by siulkilulki on 06.01.16.
- */
 angular.module('pizzeria').controller('OrderController', function($scope, $state, $stateParams, $http, basket){
-    $scope.basket = basket.list;
+    $scope.basketView = basket.listView;
     $scope.client = {};
     $scope.notes = '';
-    $scope.orderData = [
-    			{
-    				id: 10,
-    				quantity: 5
-    			}];
+    
     $scope.order = function() {
+        console.log(basket.fillListServer())
+        $scope.orderData = basket.fillListServer();
+        
     	if ($scope.client.phoneNumber!=null && $scope.client.address!=null) {
     		$http.post('/order', $scope.orderData).success(function(data){
     			var id = data.id;

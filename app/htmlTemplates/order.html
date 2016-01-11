@@ -33,16 +33,12 @@
 	</form>
 	<div id="finalBasket">
         <ul id="finalBasketList">
-            <li class="flex">
-                <div class="basketName">pizza1</div>
-                <div class="basketPrice">cena</div>
-                <div class="basketNumber">1</div>
+            <li ng-repeat="pizza in basketView track by $index" class="flex">
+                <div class="basketName">{{pizza.name}}</div>
+                <div class="basketPrice">{{pizza.price}}</div>
+                <div class="basketNumber">{{pizza.quantity}}</div>
             </li>
-            <li class="flex">
-                <div class="basketName">pizza2</div>
-                <div class="basketPrice">cena</div>
-                <div class="basketNumber">1</div>
-            </li>
+            
 
         </ul>
     </div>
