@@ -27,5 +27,9 @@ angular.module('pizzeria').factory('pizzas',function(){
     var pizzas = {};
     pizzas.list = [];
     
+    pizzas.add = function(pizza){
+        pizzas.list.push(pizza);
+    };
+    
     return pizzas;
 });
