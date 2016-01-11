@@ -24,4 +24,8 @@ angular.module('pizzeria', ['ui.router']).config(function ($stateProvider, $urlR
 });
 
 angular.module('pizzeria').factory('pizzas',function(){
+    var pizzas = {};
+    pizzas.list = [];
+    
+    return pizzas;
 });
