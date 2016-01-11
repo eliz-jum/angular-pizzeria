@@ -23,13 +23,13 @@ angular.module('pizzeria', ['ui.router']).config(function ($stateProvider, $urlR
     $urlRouterProvider.otherwise('/main');
 });
 
-angular.module('pizzeria').factory('pizzas',function(){
-    var pizzas = {};
-    pizzas.list = [];
+angular.module('pizzeria').factory('basket',function(){
+    var basket = {};
+    basket.list = [];
     
-    pizzas.add = function(pizza){
-        pizzas.list.push(pizza);
+    basket.add = function(pizza){
+        basket.list.push(pizza);
     };
     
-    return pizzas;
+    return basket;
 });
