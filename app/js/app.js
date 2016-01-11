@@ -27,6 +27,7 @@ angular.module('pizzeria').factory('basket',function(){
     var basket = {};
     basket.listView = [];//{id, name, price quantity}
     basket.listServer =[];
+    basket.total = 0;
     
     var ind;
     basket.add = function(pizza){
@@ -59,16 +60,28 @@ angular.module('pizzeria').factory('basket',function(){
     };
     
     basket.fillListServer = function(){
-        console.log("basket.listView");
-        console.log(basket.listView);
+        //console.log("basket.listView");
+        //console.log(basket.listView);
         basket.listView.forEach(function(item){
             basket.listServer.push({id: item.id, quantity: item.quantity});
         });
         return this.listServer;
     };
+    
     basket.clearBasket = function(){
         basket.listView=[];
         basket.listServer=[];
+        basket.total = 0;
+    };
+    
+    basket.sumPrices = function(){
+        console.log("sumprices");
+        basket.total=0;
+        basket.listView.forEach(function(item){
+            basket.total+=item.price;
+        });
+        basket.total = Math.round(basket.total * 100) / 100;
+        return basket.total;
     };
     return basket;
     
