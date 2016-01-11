@@ -7,7 +7,9 @@ angular.module('pizzeria').controller('MainController', function($scope, $state,
         
         //console.log(pizza);
     };
-    
+    $scope.removePizza = function(array, index){
+        array.splice(index, 1);
+    }
     
     
     $scope.menu = [];

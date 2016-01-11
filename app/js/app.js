@@ -25,36 +25,43 @@ angular.module('pizzeria', ['ui.router']).config(function ($stateProvider, $urlR
 
 angular.module('pizzeria').factory('basket',function(){
     var basket = {};
-    basket.listView = [];//{name, price quantity}
-    basket.listServer =[];
+    basket.listView = [];//{id, name, price quantity}
+    //basket.listServer =[];
     
+    var ind;
     basket.add = function(pizza){
-        console.log("view");
-        console.log(basket.listView);
-        console.log("server");
-        console.log(basket.listServer);
-        if (basket.listServer.length > 0 || basket.listServer.length >0){
-            this.listServer.forEach(function(item){
+        var isInListView=false;
+        if (this.listView.length > 0){
+            this.listView.forEach(function(item, index){
                 if (item.id===pizza.id){
-                    //juz dodal te pizze!
+                    isInListView=true;
+                    ind = index;
+                    
                 }
-                else {
-                    console.log("else!");
-                    basket.listView.push(pizza);
-                    basket.listServer.push({id: pizza.id, quantity: pizza.quantity});
-                }
-
             });
+            if (isInListView) {
+                console.log("foreach");
+                console.log(ind);
+                console.log("Ta pizza juz byla");
+                basket.listView[ind].quantity+=1;
+            }
+            else {
+                console.log("Tej pizzy nie bylo!");
+                basket.listView.push(pizza);
+                //basket.listServer.push({id: pizza.id, quantity: pizza.quantity});
+            }
+
+            
         }
         else {
-            console.log("else2!");
+            console.log("Pusta tablica!");
             basket.listView.push(pizza);
-            basket.listServer.push({id: pizza.id, quantity: pizza.quantity});
-                
+            //basket.listServer.push({id: pizza.id, quantity: pizza.quantity});
         }
-
+        console.log("view");
+        console.log(basket.listView);
+        
     };
-    
-    
     return basket;
+    
 });

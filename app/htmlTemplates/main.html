@@ -14,24 +14,19 @@
                 </div>
             </div>
             
-            <button class="pizzaAddButton" ng-click="addPizza({id: pizza.id, name: pizza.name, price: pizza.price, quantity: 1})">Add</button>
+            <button ng-click="addPizza({id: pizza.id, name: pizza.name, price: pizza.price, quantity: 1})" class="pizzaAddButton">Add</button>
             
         </li>
     </ul>
     <div id="basket">
         <ul id="basketList" >
-            <li class="flex">
-                <div class="basketName">pizza1</div>
-                <div class="basketPrice">cena</div>
-                <input class="basketNumber" type="number" value="1"/>
-                <button class="basketRemoveButton">X</button>
+            <li class="flex" ng-repeat="pizza in basketView track by $index">
+                <div class="basketName">{{pizza.name}}</div>
+                <div class="basketPrice">{{pizza.price}}</div>
+                <input class="basketNumber" type="number" min="1" value="1" ng-model="pizza.quantity"/>
+                <button ng-click="removePizza(basketView, $index)" class="basketRemoveButton">X</button>
             </li>
-            <li>
-                <div class="basketName">pizza2</div>
-                <div class="basketPrice">cena</div>
-                <input class="basketNumber" type="number" value="1"/>
-                <button class="basketRemoveButton">X</button>
-            </li>
+            
 
         </ul>
     </div>
