@@ -2,6 +2,7 @@ angular.module('pizzeria').controller('OrderController', function($scope, $state
     $scope.basketView = basket.listView;
     $scope.client = {};
     $scope.notes = '';
+    $scope.total = basket.total;
     
     $scope.order = function() {
         console.log(basket.fillListServer())
