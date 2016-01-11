@@ -66,7 +66,10 @@ angular.module('pizzeria').factory('basket',function(){
         });
         return this.listServer;
     };
-    
+    basket.clearBasket = function(){
+        basket.listView=[];
+        basket.listServer=[];
+    };
     return basket;
     
 });

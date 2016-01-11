@@ -11,9 +11,11 @@ angular.module('pizzeria').controller('OrderController', function($scope, $state
     		$http.post('/order', $scope.orderData).success(function(data){
     			var id = data.id;
 				$state.go('status', {'orderId': id});
+                basket.clearBasket();
             }).error(function(data, status) {
 		        console.error('http.post error in OrderCtrl.js', status, data);
 		    });
+            
     	}
     };
 });
