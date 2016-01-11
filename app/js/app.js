@@ -26,10 +26,14 @@ angular.module('pizzeria', ['ui.router']).config(function ($stateProvider, $urlR
 angular.module('pizzeria').factory('basket',function(){
     var basket = {};
     basket.listView = [];//{name, price quantity}
-    basket.listServer =[]
+    basket.listServer =[];
     
     basket.add = function(pizza){
-        if (basket.listServer!==[] || basket.listServer.length()!==0){
+        console.log("view");
+        console.log(basket.listView);
+        console.log("server");
+        console.log(basket.listServer);
+        if (basket.listServer.length > 0 || basket.listServer.length >0){
             this.listServer.forEach(function(item){
                 if (item.id===pizza.id){
                     //juz dodal te pizze!
@@ -42,16 +46,13 @@ angular.module('pizzeria').factory('basket',function(){
 
             });
         }
-        else{
+        else {
             console.log("else2!");
             basket.listView.push(pizza);
             basket.listServer.push({id: pizza.id, quantity: pizza.quantity});
                 
         }
-        console.log("view");
-        console.log(basket.listView);
-        console.log("server");
-        console.log(basket.listServer);    
+
     };
     
     
