@@ -12,7 +12,8 @@ angular.module('pizzeria').controller('OrderController', function($scope, $state
     $scope.order = function() {
     	if ($scope.client.phoneNumber!=null && $scope.client.address!=null) {
     		$http.post('/order', $scope.orderData).success(function(data){
-    			$scope.id = data.id;
+    			var id = data.id;
+				$state.go('status', {'orderId': id});
             }).error(function(data, status) {
 		        console.error('http.post error in OrderCtrl.js', status, data);
 		    });
