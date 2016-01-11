@@ -62,14 +62,14 @@ ul {
 	margin: 1em 1em;
 }
 
-#pizzaList {
+#pizzaList, #orderForm {
 	width: 70%;
 }
 
 #basketList li {
 	flex-direction: row;
 }
-#basket {
+#basket, #finalBasket {
 	width: 30%;
 }
 .basketName {
