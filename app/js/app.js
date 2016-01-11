@@ -22,3 +22,6 @@ angular.module('pizzeria', ['ui.router']).config(function ($stateProvider, $urlR
         });
     $urlRouterProvider.otherwise('/main');
 });
+
+angular.module('pizzeria').factory('pizzas',function(){
+});
