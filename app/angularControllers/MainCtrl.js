@@ -2,6 +2,7 @@ angular.module('pizzeria').controller('MainController', function($scope, $state,
     $scope.basket = basket.list;
     $scope.addPizza = function(pizza){
         basket.add(pizza);
+        console.log(pizza);
     };
     /*$scope.menu=[
     {
