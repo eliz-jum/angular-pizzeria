@@ -1,7 +1,8 @@
 /**
  * Created by siulkilulki on 06.01.16.
  */
-angular.module('pizzeria').controller('OrderController', function($scope, $state, $stateParams, $http){
+angular.module('pizzeria').controller('OrderController', function($scope, $state, $stateParams, $http, basket){
+    $scope.basket = basket.list;
     $scope.client = {};
     $scope.notes = '';
     $scope.orderData = [

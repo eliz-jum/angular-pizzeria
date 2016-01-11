@@ -42,9 +42,16 @@ ul {
 	width: 100%;
 }
 
-#navigation, #basketList li, #pizzaList li {
+#navigation {
 	display: flex;
 	justify-content: center;
+	list-style: none;
+	max-width: 100%;
+	margin: 0;
+}
+#basketList li, #pizzaList li {
+	display: flex;
+	justify-content: left;
 	list-style: none;
 	max-width: 100%;
 	margin: 0;
