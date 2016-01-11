@@ -78,8 +78,8 @@ app.post('/order', function (req, res) {
                         quantity: position.quantity
                     };
                 }),
-                ordered: new Date(now),
-                estimated: new Date(now + _.random(15, 90))
+                ordered: Date.now(),
+                estimated: Date.now() + _.random(15, 90) *60*1000
             };
 
             res.json({
