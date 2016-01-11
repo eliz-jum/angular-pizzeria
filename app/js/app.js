@@ -11,7 +11,7 @@ angular.module('pizzeria', ['ui.router']).config(function ($stateProvider, $urlR
             controller: 'OrderController'
         })
         .state('status', {
-            url: '/status/:id',
+            url: '/status/:orderId',
             templateUrl: '../htmlTemplates/status.html',
             controller: 'StatusController'
         })
