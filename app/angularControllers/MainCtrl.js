@@ -1,4 +1,5 @@
-angular.module('pizzeria').controller('MainController', function($scope, $state, $stateParams, $http){
+angular.module('pizzeria').controller('MainController', function($scope, $state, $stateParams, $http, basket){
+    $scope.basket = basket.list;
     /*$scope.menu=[
     {
         id: 1,
