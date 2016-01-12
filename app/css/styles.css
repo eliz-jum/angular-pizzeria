@@ -66,7 +66,9 @@ ul {
 #pizzaList li {
 	margin: 1rem;
 }
-
+.pizzaDetails {
+	width: 40rem;
+}
 .pizzaIngredients {
 	display: flex;
 	flex-direction: row;
