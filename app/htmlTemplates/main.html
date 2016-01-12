@@ -1,7 +1,7 @@
 <div ng-controller="MainController" class="flex">
     <div class="left">
         <h2>Menu</h2>
-        
+
         <ul id="pizzaList" >
             <li ng-repeat="pizza in menu">
                 <img class="pizzaPicture"/>
@@ -18,6 +18,7 @@
                 </div>
                 
                 <button ng-click="addPizza({id: pizza.id, name: pizza.name, price: pizza.price, quantity: 1})" class="pizzaAddButton">Add</button>
+                <a ui-sref="order"><button ng-click="addPizza({id: pizza.id, name: pizza.name, price: pizza.price, quantity: 1})" class="pizzaOrderButton">Order now</button></a>
                 
             </li>
         </ul>
