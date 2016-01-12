@@ -1,5 +1,9 @@
 #Project - Pizzeria
 
+###Team:
+* Eliza Nowacka
+* Dawid Jurkiewicz
+* Zofia Drozd
 
 ####Views:
 * Main screen (menu + basket)
