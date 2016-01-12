@@ -37,6 +37,6 @@
             Your basket is empty
         </div>
         
-        <a ui-sref="order"><button>Continue</button></a>
+        <a ng-show="basketView.length > 0" ui-sref="order"><button>Continue</button></a>
     </div>
 </div>
