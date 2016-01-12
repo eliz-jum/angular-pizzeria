@@ -17,7 +17,7 @@
                 </div>
                 
                 <button ng-click="addPizza({id: pizza.id, name: pizza.name, price: pizza.price, quantity: 1})" class="pizzaAddButton">Add</button>
-                <a ui-sref="order"><button ng-click="addPizza({id: pizza.id, name: pizza.name, price: pizza.price, quantity: 1})" class="pizzaOrderButton">Order now</button></a>
+                <button ng-click="orderPizza(basketView, {id: pizza.id, name: pizza.name, price: pizza.price, quantity: 1})" class="pizzaOrderButton">Order now</button>
                 
             </li>
         </ul>

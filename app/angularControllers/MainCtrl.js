@@ -9,15 +9,22 @@ angular.module('pizzeria').controller('MainController', function($scope, $state,
         $scope.total = basket.sumPrices();
     };
     
+    $scope.orderPizza = function(array, pizza) {
+        basket.clearBasket();
+        $scope.addPizza(pizza);
+
+        $state.go('order');
+    };
+
     $scope.removePizza = function(array, index){
         array.splice(index, 1);
         $scope.total = basket.sumPrices();
-    }
+    };
     
     $scope.updateTotal = function(){
         console.log("update total");
         $scope.total = basket.sumPrices();
-    }
+    };
     
     $http.get('/menu').success(function(data){
         $scope.menu = data;
