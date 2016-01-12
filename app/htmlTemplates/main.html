@@ -33,5 +33,8 @@
         <div ng-show="basketView.length > 0">
             Total: {{total | currency}}
         </div>
+        <div ng-show="basketView.length == 0">
+            Your basket is empty
+        </div>
     </div>
 </div>
