@@ -10,7 +10,7 @@
                     {{pizza.ingredients}}
                 </div>
                 <div class="pizzaPrice">
-                    {{pizza.price}}
+                    {{pizza.price | currency}}
                 </div>
             </div>
             
@@ -22,7 +22,7 @@
         <ul id="basketList" >
             <li class="flex" ng-repeat="pizza in basketView track by $index">
                 <div class="basketName">{{pizza.name}}</div>
-                <div class="basketPrice">{{pizza.price}}</div>
+                <div class="basketPrice">{{pizza.price | currency}}</div>
                 <input ng-click="updateTotal()" class="basketNumber" type="number" min="1" value="1" ng-model="pizza.quantity"/>
                 <button ng-click="removePizza(basketView, $index)" class="basketRemoveButton">X</button>
             </li>
