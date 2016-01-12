@@ -1,37 +1,42 @@
 <div ng-controller="OrderController" class="flex">
-	<form name="form" id="orderForm">
-		First name:<br/>
-		<input type="text" ng-model="client.firstName" name="firstName"/>
-		<br/>
+	<div class="left">
+		<h2>Finalize order</h2>
+		<form name="form" id="orderForm">
+			First name:<br/>
+			<input type="text" ng-model="client.firstName" name="firstName"/>
+			<br/>
 
-		Surname:<br/>
-		<input type="text" ng-model="client.surname" name="surname"/>
-		<br/>
+			Surname:<br/>
+			<input type="text" ng-model="client.surname" name="surname"/>
+			<br/>
 
-		Phone number:<br/>
-		<input type="text" ng-model="client.phoneNumber" name="phoneNumber" required=""/>
-		<br/>
-		<div ng-show="form.$submitted || form.phoneNumber.$touched">
-			<span ng-show="form.phoneNumber.$error.required">
-				We need your number!
-			</span>
-		</div>
+			Phone number:<br/>
+			<input type="text" ng-model="client.phoneNumber" name="phoneNumber" required=""/>
+			<br/>
+			<div ng-show="form.$submitted || form.phoneNumber.$touched">
+				<span ng-show="form.phoneNumber.$error.required">
+					We need your number!
+				</span>
+			</div>
 
-		Address:<br/>
-		<input type="text" ng-model="client.address" name="address" required=""/>
-		<br/>
-		<div ng-show="form.$submitted || form.address.$touched">
-			<span ng-show="form.address.$error.required">
-				We need your address!
-			</span>
-		</div>
+			Address:<br/>
+			<input type="text" ng-model="client.address" name="address" required=""/>
+			<br/>
+			<div ng-show="form.$submitted || form.address.$touched">
+				<span ng-show="form.address.$error.required">
+					We need your address!
+				</span>
+			</div>
 
-		Notes:<br/>
-		<input type="text" ng-model="notes" name="notes"/>
-		<br/>
-		<a><input type="submit" value="Order" ng-disabled="form.$invalid" ng-click="order()"></a>
-	</form>
-	<div id="finalBasket">
+			Notes:<br/>
+			<input type="text" ng-model="notes" name="notes"/>
+			<br/>
+			<a><input type="submit" value="Order" ng-disabled="form.$invalid" ng-click="order()"></a>
+		</form>
+	</div>
+	<div class="basket">
+        <h2>Basket</h2>
+        
         <ul id="finalBasketList">
             <li ng-repeat="pizza in basketView track by $index" class="flex">
                 <div class="basketName">{{pizza.name}}</div>

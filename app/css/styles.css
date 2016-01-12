@@ -8,6 +8,10 @@ body {
 	margin: 0;
 }
 
+h2 {
+	margin: 1rem;
+}
+
 h3 {
     margin: 0;
 }
@@ -55,14 +59,16 @@ ul {
 	margin: 1em 1em;
 }
 
-#basketList li, #pizzaList li {
+li {
 	display: flex;
 	justify-content: left;
 	list-style: none;
-	max-width: 100%;
 	margin: 0;
 }
 
+.left {
+	width: 70%;
+}
 #pizzaList li {
 	margin: 1rem;
 }
@@ -82,15 +88,11 @@ ul {
 	margin-bottom: 0.5rem;
 }
 
-#pizzaList, #orderForm {
-	width: 70%;
+.basket {
+	width: 30%;
 }
-
 #basketList li {
 	flex-direction: row;
-}
-#basket, #finalBasket {
-	width: 30%;
 }
 .basketName {
     width: 55%;
@@ -110,7 +112,7 @@ ul {
 }
 
 #contact {
-	display: block;
+	margin: 0 1rem;
 }
 
 

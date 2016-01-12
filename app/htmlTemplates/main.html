@@ -1,24 +1,28 @@
 <div ng-controller="MainController" class="flex">
-    <ul id="pizzaList" >
-        <li ng-repeat="pizza in menu">
-            <img class="pizzaPicture"/>
-            <div class="pizzaDetails">
-                <h3 class="pizzaTitle">
-                    {{pizza.name}}
-                </h3>
-                <div class="pizzaIngredients">
-                    <div ng-repeat="ingredient in pizza.ingredients">{{ingredient}} </div>
+    <div class="left">
+        <h2>Menu</h2>
+        
+        <ul id="pizzaList" >
+            <li ng-repeat="pizza in menu">
+                <img class="pizzaPicture"/>
+                <div class="pizzaDetails">
+                    <h3 class="pizzaTitle">
+                        {{pizza.name}}
+                    </h3>
+                    <div class="pizzaIngredients">
+                        <div ng-repeat="ingredient in pizza.ingredients">{{ingredient}} </div>
+                    </div>
+                    <div class="pizzaPrice">
+                        {{pizza.price | currency}}
+                    </div>
                 </div>
-                <div class="pizzaPrice">
-                    {{pizza.price | currency}}
-                </div>
-            </div>
-            
-            <button ng-click="addPizza({id: pizza.id, name: pizza.name, price: pizza.price, quantity: 1})" class="pizzaAddButton">Add</button>
-            
-        </li>
-    </ul>
-    <div id="basket">
+                
+                <button ng-click="addPizza({id: pizza.id, name: pizza.name, price: pizza.price, quantity: 1})" class="pizzaAddButton">Add</button>
+                
+            </li>
+        </ul>
+    </div>
+    <div class="basket">
         <h2>Basket</h2>
         
         <ul id="basketList" >
