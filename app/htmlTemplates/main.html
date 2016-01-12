@@ -7,7 +7,7 @@
                     {{pizza.name}}
                 </h3>
                 <div class="pizzaIngredients">
-                    <span ng-repeat="ingredient in pizza.ingredients">{{ingredient}}</span>
+                    <div ng-repeat="ingredient in pizza.ingredients">{{ingredient}} </div>
                 </div>
                 <div class="pizzaPrice">
                     {{pizza.price | currency}}
