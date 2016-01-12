@@ -99,6 +99,12 @@ ul {
     width: 15%;
 }
 
+#orderForm {
+    margin: 1rem;
+}
+#orderForm input{
+    margin-bottom: 0.7rem;
+}
 #orderForm span {
 	color: red;
 }
