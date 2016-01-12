@@ -63,6 +63,9 @@ ul {
 	margin: 0;
 }
 
+#pizzaList li {
+	margin: 1rem;
+}
 #pizzaList, #orderForm {
 	width: 70%;
 }
