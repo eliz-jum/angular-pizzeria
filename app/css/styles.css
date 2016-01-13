@@ -1,7 +1,7 @@
 /*selektory od ogółu do szczegółu,
 a potem układem na stronie*/
 /*adds border to elements inside body*/
-body * {
+//body * {
 	border: solid 1px gray;
 }
 body {
@@ -29,6 +29,7 @@ ul {
 #site {
 	width: 60%;
 	margin: 0 auto;
+    border: solid 1px gray;
 }
 
 #banner {
@@ -51,9 +52,11 @@ li {
 .pizzaPicture {
     width: 8rem;
     height: 8rem;
+    border: solid 1px gray;
 }
 .pizzaDetails {
 	width: 30rem;
+    border: solid 1px gray;
 }
 .pizzaDetails > * {
 	margin: 0.5rem;
@@ -71,6 +74,7 @@ li {
 .basket {
 	width: 30%;
 }
+
 #basketList li {
 	flex-direction: row;
 }
