@@ -35,25 +35,6 @@ ul {
 	height: 10em;
 }
 
-#container {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-}
-
-#navigation {
-	display: flex;
-	justify-content: center;
-	list-style: none;
-	max-width: 100%;
-	margin: 0;
-}
-#navigation li {
-	width: 10rem;
-	height: 3em;
-	margin: 1em 1em;
-}
-
 li {
 	display: flex;
 	justify-content: left;
