@@ -25,7 +25,20 @@
 
 	<div id="site">
 		<div id="banner">Banner</div>
-        <div ui-view></div>
+		<div>
+			<div id="container">
+				<ul id="navigation">
+					<li> <a ui-sref="main">Home</a> </li>
+					<li> <a ui-sref="order">Order</a> </li>
+					<li> <a ui-sref="contact">Contact</a> </li>
+				</ul>
+
+                <div ui-view></div>
+
+			</div>
+
+
+		</div>
 	</div>
 
 	<script src=""></script>
