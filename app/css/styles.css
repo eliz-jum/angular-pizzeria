@@ -16,11 +16,6 @@ h3 {
     margin: 0;
 }
 
-img {
-    width: 5rem;
-    height: 5rem;
-}
-
 ul {
     list-style: none;
     padding: 0;
@@ -71,6 +66,10 @@ li {
 }
 #pizzaList li {
 	margin: 1rem;
+}
+.pizzaPicture {
+    width: 8rem;
+    height: 8rem;
 }
 .pizzaDetails {
 	width: 40rem;
