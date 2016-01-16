@@ -1,7 +1,7 @@
 /*selektory od ogółu do szczegółu,
 a potem układem na stronie*/
 /*adds border to elements inside body*/
-body * {
+//body * {
 	border: solid 1px gray;
 }
 body {
@@ -16,11 +16,6 @@ h3 {
     margin: 0;
 }
 
-img {
-    width: 5rem;
-    height: 5rem;
-}
-
 ul {
     list-style: none;
     padding: 0;
@@ -32,31 +27,13 @@ ul {
 }
 
 #site {
-	width: 80%;
+	width: 60%;
 	margin: 0 auto;
+    border: solid 1px gray;
 }
 
 #banner {
 	height: 10em;
-}
-
-#container {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-}
-
-#navigation {
-	display: flex;
-	justify-content: center;
-	list-style: none;
-	max-width: 100%;
-	margin: 0;
-}
-#navigation li {
-	width: 10rem;
-	height: 3em;
-	margin: 1em 1em;
 }
 
 li {
@@ -72,8 +49,14 @@ li {
 #pizzaList li {
 	margin: 1rem;
 }
+.pizzaPicture {
+    width: 8rem;
+    height: 8rem;
+    border: solid 1px gray;
+}
 .pizzaDetails {
-	width: 40rem;
+	width: 30rem;
+    border: solid 1px gray;
 }
 .pizzaDetails > * {
 	margin: 0.5rem;
@@ -91,6 +74,7 @@ li {
 .basket {
 	width: 30%;
 }
+
 #basketList li {
 	flex-direction: row;
 }

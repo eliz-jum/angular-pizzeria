@@ -37,16 +37,16 @@
 	<div class="basket">
         <h2>Basket</h2>
 
-        <ul id="finalBasketList">
-            <li ng-repeat="pizza in basketView track by $index" class="flex">
+        <ul class="basketList" id="finalList">
+            <li ng-repeat="pizza in basketView track by $index" class="flex shadow">
                 <div class="basketName">{{pizza.name}}</div>
+                <div class="basketNumber">{{pizza.quantity}} x</div>
                 <div class="basketPrice">{{pizza.price | currency}}</div>
-                <div class="basketNumber">{{pizza.quantity}}</div>
             </li>
         </ul>
-        <div>
+        <div class="total">
             Total: {{total | currency}}
         </div>
-        <a ui-sref="main"><button>Back</button></a>
+        <a ui-sref="main"><button id="backButton" class="shadow">Back</button></a>
     </div>
 </div>
