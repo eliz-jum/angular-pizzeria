@@ -32,6 +32,7 @@
                 <div class="basketName">{{pizza.name}}</div>
                 <div class="basketPrice">{{pizza.price | currency}}</div>
                 <input ng-click="updateTotal()" class="basketNumber" type="number" min="1" value="1" ng-model="pizza.quantity"/>
+                <button ng-click="customisePizza(basketIngredients, $index)" class="basketCustomiseButton">custom</button>
                 <button ng-click="removePizza(basketView, $index)" class="basketRemoveButton">X</button>
             </li>
         </ul>
