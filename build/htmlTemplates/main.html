@@ -2,8 +2,10 @@
     <div class="left">
         <h2>Menu</h2>
         <ul id="pizzaList" >
-            <li ng-repeat="pizza in menu">
-                <img class="pizzaPicture" src="../img/icon.png"/>
+            <li ng-repeat="pizza in menu" class="shadow">
+                <div class="pizzaPicture">
+                    <img src="../img/icon.png"/>
+                </div>
                 <div class="pizzaDetails">
                     <h3 class="pizzaTitle">
                         {{pizza.name}}
@@ -15,18 +17,18 @@
                         {{pizza.price | currency}}
                     </div>
                 </div>
-                
-                <button ng-click="addPizza({id: pizza.id, name: pizza.name, price: pizza.price, quantity: 1})" class="pizzaAddButton">Add</button>
-                <button ng-click="orderPizza(basketView, {id: pizza.id, name: pizza.name, price: pizza.price, quantity: 1})" class="pizzaOrderButton">Order now</button>
-                
+                <div class="pizzaButtons">
+                    <button ng-click="addPizza({id: pizza.id, name: pizza.name, price: pizza.price, quantity: 1})" class="pizzaAddButton shadow">Add</button>
+                    <button ng-click="orderPizza(basketView, {id: pizza.id, name: pizza.name, price: pizza.price, quantity: 1})" class="pizzaOrderButton shadow">Order now</button>
+                </div>
             </li>
         </ul>
     </div>
     <div class="basket">
         <h2>Basket</h2>
         
-        <ul id="basketList" >
-            <li class="flex" ng-repeat="pizza in basketView track by $index">
+        <ul class="basketList" >
+            <li class="flex shadow" ng-repeat="pizza in basketView track by $index">
                 <div class="basketName">{{pizza.name}}</div>
                 <div class="basketPrice">{{pizza.price | currency}}</div>
                 <input ng-click="updateTotal()" class="basketNumber" type="number" min="1" value="1" ng-model="pizza.quantity"/>
@@ -34,13 +36,13 @@
             </li>
         </ul>
         
-        <div ng-show="basketView.length > 0">
+        <div class="total" ng-show="basketView.length > 0">
             Total: {{total | currency}}
         </div>
-        <div ng-show="basketView.length == 0">
+        <div class="empty" ng-show="basketView.length == 0">
             Your basket is empty
         </div>
         
-        <a ng-show="basketView.length > 0" ui-sref="order"><button>Continue</button></a>
+        <a ng-show="basketView.length > 0" ui-sref="order"><button id="continueButton"class="shadow">Continue</button></a>
     </div>
 </div>

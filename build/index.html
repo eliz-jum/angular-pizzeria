@@ -24,7 +24,13 @@
 	<script type="text/javascript" src="services/basketService.js"></script>
 
 	<div id="site">
-		<div id="banner">Banner</div>
+		<div id="banner" class="shadow">
+			<img src="./img/banner.jpg"/>
+			<div id="navigation">
+				<div id="homeButton" class="shadow"><a ui-sref="main">Menu</a></div>
+				<div id="contactButton" class="shadow"><a ui-sref="contact">Contact</a></div>
+			</div>
+		</div>
         <div ui-view></div>
 	</div>
 
