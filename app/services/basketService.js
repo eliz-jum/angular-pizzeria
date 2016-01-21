@@ -1,7 +1,8 @@
 angular.module('pizzeria').factory('basket',function(){
     var basket = {};
     basket.listView = [];//{id, name, price quantity}
-    basket.listServer =[];
+    basket.listServer = [];
+    basket.ingredients= [];
     basket.total = 0;
     
     var ind;

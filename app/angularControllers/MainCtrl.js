@@ -1,6 +1,7 @@
 angular.module('pizzeria').controller('MainController', function($scope, $state, $stateParams, $http, basket){
     $scope.basketServer = basket.listServer;
     $scope.basketView = basket.listView;
+    $scope.basketIngredients = basket.ingredients;
     $scope.total = basket.total;
     $scope.menu = [];
     
@@ -21,9 +22,14 @@ angular.module('pizzeria').controller('MainController', function($scope, $state,
         $scope.total = basket.sumPrices();
     };
     
-    $scope.updateTotal = function(){
+    $scope.updateTotal = function(){//co z ta funkcja??????
         console.log("update total");
         $scope.total = basket.sumPrices();
+    };
+    
+    $scope.rcustomisePizza = function(array, index){
+        //array to tablica skladnikoww
+        $scope.total = basket.sumPrices();//trzeba bedzie zmienic sumPrices zeby dodawalo ceny za dodatkowe skladniki
     };
     
     $http.get('/menu').success(function(data){
