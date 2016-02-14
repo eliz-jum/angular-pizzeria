@@ -32,7 +32,7 @@ angular.module('pizzeria').controller('MainController', function($scope, $state,
         $scope.total = basket.sumPrices();//trzeba bedzie zmienic sumPrices zeby dodawalo ceny za dodatkowe skladniki
     };
     
-    $http.get('/menu').success(function(data){
+    $http.get('/data/menu').success(function(data){
         $scope.menu = data;
         //console.log(data);
     }).error(function(data, status) {
