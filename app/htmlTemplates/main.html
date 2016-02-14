@@ -2,7 +2,7 @@
     <div class="left">
         <h2>Menu</h2>
         <ul id="pizzaList" >
-            <li ng-repeat="pizza in menu" class="shadow">
+            <li ng-repeat="pizza in menu | orderBy:'ingredients.length'" class="shadow">
                 <div class="pizzaPicture">
                     <img src="../img/icon.png"/>
                 </div>
