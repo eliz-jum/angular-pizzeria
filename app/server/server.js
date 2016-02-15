@@ -110,12 +110,12 @@ function updateClients(id, order) {
 app.post('/order', function (req, res) {
     setTimeout(function () {
         console.log('Order recived', req.body);
-        if (checkIsOrderValid(req.body) || true) {//zmieniłem póki Eliza nie zrobi stage 2
+        if (checkIsOrderValid(req.body)) {
             var now = Date.now();
 
             orders[i] = {
                 order: {
-                    order: null/*req.body.order.map(function (position) {
+                    order: req.body.order.map(function (position) {
                         return {
                             pizza: {
                                 id: position.id,
@@ -123,7 +123,7 @@ app.post('/order', function (req, res) {
                             },
                             quantity: position.quantity
                         };
-                    })*/,
+                    }),
                     extras: req.body.extras
                 },
                 orderInfo: req.body.orderInfo,
