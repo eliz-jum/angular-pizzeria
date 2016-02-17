@@ -4,6 +4,8 @@
   "description": "pizzeria Web Application",
   "main": "app.js",
   "dependencies": {
+    "angular-cookies": "^1.5.0",
+    "angular-local-storage": "^0.2.2",
     "body-parser": "^1.14.2",
     "express": "^4.13.3",
     "gulp": "^3.9.0",

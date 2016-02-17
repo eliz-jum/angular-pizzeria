@@ -26,7 +26,7 @@
     </div>
     <div class="basket">
         <h2>Basket</h2>
-        
+
         <ul class="basketList" >
             <li class="flex shadow" ng-repeat="pizza in basketView track by $index">
                 <div class="basketName">{{pizza.name}}</div>
@@ -36,14 +36,14 @@
                 <button ng-click="removePizza(basketView, $index)" class="basketRemoveButton">X</button>
             </li>
         </ul>
-        
+
         <div class="total" ng-show="basketView.length > 0">
             Total: {{total | currency}}
         </div>
         <div class="empty" ng-show="basketView.length == 0">
             Your basket is empty
         </div>
-        
+
         <a ng-show="basketView.length > 0" ui-sref="order"><button id="continueButton"class="shadow">Continue</button></a>
     </div>
 </div>

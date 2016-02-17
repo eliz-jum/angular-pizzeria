@@ -17,7 +17,7 @@ angular.module('pizzeria').controller('OrderController', function($scope, $state
             }).error(function(data, status) {
 		        console.error('http.post error in OrderCtrl.js', status, data);
 		    });
-            
+
     	}
     };
 
