@@ -1,13 +1,12 @@
-angular.module('pizzeria').controller('MainController', function($scope, $state, $stateParams, $http, basket){
+angular.module('pizzeria').controller('MainController', function($scope, $state, $stateParams, $http, basket) {
     $scope.basketServer = basket.listServer;
     $scope.basketView = basket.listView;
     $scope.basketIngredients = basket.ingredients;
     $scope.total = basket.total;
     $scope.menu = [];
-    
     var ingredients = [];
     var extraIngredients = [];
-    
+
     $scope.addPizza = function(pizza){
         basket.add(pizza);
         $scope.total = basket.sumPrices();

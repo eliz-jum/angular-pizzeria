@@ -1,10 +1,20 @@
-angular.module('pizzeria').factory('basket',function(){
-    var basket = {};
-    basket.listView = [];//{id, name, price quantity}
-    basket.listServer = [];
-    basket.ingredients= [];
-    basket.total = 0;
-    
+angular.module('pizzeria').factory('basket',function($cookies){
+
+    var basketCookieKey = "basketCookie";
+    function getBasketFromCookie(key) {
+        if (angular.isUndefined($cookies.getObject(key))) {
+            basket = {};
+            basket.listView = [];//{id, name, price quantity}
+            basket.listServer = [];
+            basket.ingredients= [];
+            basket.total = 0;
+            return basket;
+        } else {
+            return $cookies.getObject(key);
+        }
+    }
+
+    var basket = getBasketFromCookie(basketCookieKey);
     var ind;
     basket.add = function(pizza){
         var isInListView=false;
@@ -30,6 +40,8 @@ angular.module('pizzeria').factory('basket',function(){
             console.log("Pusta tablica!");
             basket.listView.push(pizza);
         }
+        $cookies.putObject(basketCookieKey, basket);
+        console.log("add cookie: "+$cookies.getObject(basketCookieKey, basket));
         console.log("view");
         console.log(basket.listView);
         
@@ -48,6 +60,8 @@ angular.module('pizzeria').factory('basket',function(){
         basket.listView=[];
         basket.listServer=[];
         basket.total = 0;
+        $cookies.remove(basketCookieKey);
+        console.log("remove cookie: "+$cookies.getObject(basketCookieKey, basket));
     };
     
     basket.sumPrices = function(){
@@ -57,8 +71,11 @@ angular.module('pizzeria').factory('basket',function(){
             basket.total+=item.price*item.quantity;
         });
         basket.total = Math.round(basket.total * 100) / 100;
+        $cookies.putObject(basketCookieKey, basket);
+        console.log("add cookie: "+$cookies.getObject(basketCookieKey, basket));
         return basket.total;
     };
+    $cookies.putObject(basketCookieKey, basket);
+    console.log("add cookie: "+$cookies.getObject(basketCookieKey, basket));
     return basket;
-    
 });
