@@ -26,9 +26,6 @@ angular.module('pizzeria').controller('OrderController', function($scope, $state
             templateUrl: "extras.html",
             controller: "ExtrasController"
         }).then(function(modal) {
-
-            //it's a bootstrap element, use 'modal' to show it
-            // modal.element.modal();
             modal.close.then(function(result) {
                 console.log(result);
             });

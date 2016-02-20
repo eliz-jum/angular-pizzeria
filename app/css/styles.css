@@ -49,6 +49,14 @@ li {
 	margin: 0;
 }
 
+p {
+	margin-bottom: 0;
+}
+
+small {
+	color: gray;
+}
+
 .flex {
 	display: flex;
 	flex-direction: row;
@@ -226,6 +234,50 @@ li {
     float: right;
     font-size: 28px;
     font-weight: bold;
+}
+
+.basicIngredients div{
+	padding: 0;
+	overflow: hidden;
+}
+
+.basicIngredients button {
+	font-size: small;
+	color: white;
+	background-color: #F26F67;
+	border: none;
+	box-shadow: none ;
+}
+.basicIngredients .removed * {
+	background-color: #bfbfbf;
+}
+.basicIngredients div:hover, .basicIngredients button:hover {
+	background-color: #ccc;
+}
+
+.extraIngredients div{
+	background-color: #bfbfbf;
+	padding: 0;
+	overflow: hidden;
+}
+
+.extraIngredients button {
+	font-size: small;
+	color: white;
+	background-color: #bfbfbf;
+	border: none;
+	box-shadow: none;
+}
+.extraIngredients .added * {
+	background-color: #F26F67;
+}
+.extraIngredients div:hover, .extraIngredients button:hover {
+	background-color: #f37972;
+}
+
+.customPrice {
+	margin-top: 0.5em;
+	font-weight: bold;
 }
 
 #extrasList li {

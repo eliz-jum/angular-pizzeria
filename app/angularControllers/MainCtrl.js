@@ -1,4 +1,4 @@
-angular.module('pizzeria').controller('MainController', function($scope, $state, $stateParams, $http, basket) {
+angular.module('pizzeria').controller('MainController', function($scope, $state, $stateParams, $http, basket, ModalService) {
     $scope.basketServer = basket.listServer;
     $scope.basketView = basket.listView;
     $scope.basketIngredients = basket.ingredients;
@@ -44,6 +44,27 @@ angular.module('pizzeria').controller('MainController', function($scope, $state,
         return result;
         
     }
+
+    $scope.open = function(item) {
+        ModalService.showModal({
+            templateUrl: "custom.html",
+            controller: "CustomController",
+            inputs: {
+                pizza: {
+                    id: item.id,
+                    name: item.name,
+                    ingredients: $scope.menu[item.id+1].ingredients,
+                    price: item.price
+                },
+                showIngredients: $scope.showIngredients,
+                ingredients: ingredients
+            }
+        }).then(function(modal) {
+            modal.close.then(function(result) {
+                console.log(result);
+            });
+      });
+    };
     
     
     $http.get('/menu').success(function(data){
@@ -67,4 +88,43 @@ angular.module('pizzeria').controller('MainController', function($scope, $state,
         console.error('http.get error in MainCtrl.js', status, data);        
     });
     
+});
+
+
+angular.module('pizzeria').controller('CustomController', function($scope, $http, close, pizza, showIngredients, ingredients) {
+// when you need to close the modal, call close
+    $scope.close = function(result) {
+        close(result);
+    }
+
+    $scope.pizza = pizza;
+    $scope.showIngredients = showIngredients;
+    $scope.ingredients = ingredients;
+    $scope.extraIngredients = [];
+
+    $scope.id = "name";
+    $scope.clicked = false;
+
+    $scope.addExtra = function(ingredientId) {
+
+        // if ($scope.classname === "not") {
+        //     $scope.extraIngredients.push(ingredientId);
+        //     $scope.classname = "added";
+        //     console.log('added ' + ingredientId)
+
+        // }
+        // else {
+        //     var index = $scope.extraIngredients.indexOf(ingredientId);
+        //     if (index > -1)
+        //         $scope.extraIngredients.splice(index,1);
+        //     $scope.classname = "not";
+        // }
+    }
+
+    $http.get('/extras').success(function(data){
+        $scope.extras = data;
+        //console.log(data);
+    }).error(function(data, status) {
+        console.error('http.get error in CustomCtrl.js', status, data);        
+    });
 });

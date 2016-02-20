@@ -74,7 +74,7 @@
 	                    {{item.price | currency}}
 	                </div>
 	                <div class="addExtraButton">
-	                    <button ng-click="addExtra({id: pizza.id, name: pizza.name, price: pizza.price, quantity: 1})" class="pizzaAddButton shadow">Add</button>
+	                    <button ng-click="toggle(item.id)" class="pizzaAddButton shadow">Add</button>
 	                </div>
 	            </li>
 	        </ul>

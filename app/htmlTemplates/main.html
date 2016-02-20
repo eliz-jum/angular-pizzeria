@@ -27,12 +27,12 @@
     <div class="basket">
         <h2>Basket</h2>
 
-        <ul class="basketList" >
+        <ul class="basketList">
             <li class="flex shadow" ng-repeat="pizza in basketView track by $index">
                 <div class="basketName">{{pizza.name}}</div>
                 <div class="basketPrice">{{pizza.price | currency}}</div>
                 <input ng-click="updateTotal()" class="basketNumber" type="number" min="1" value="1" ng-model="pizza.quantity"/>
-                <button ng-click="customisePizza(basketIngredients, $index)" class="basketCustomiseButton">custom</button>
+                <button ng-click="open(pizza)" class="basketCustomiseButton">custom</button>
                 <button ng-click="removePizza(basketView, $index)" class="basketRemoveButton">X</button>
             </li>
         </ul>
@@ -47,3 +47,42 @@
         <a ng-show="basketView.length > 0" ui-sref="order"><button id="continueButton"class="shadow">Continue</button></a>
     </div>
 </div>
+
+<!-- The actual modal template, just a bit o bootstrap -->
+<script type="text/ng-template" id="custom.html">
+ <div class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 class="modal-title pizzaTitle">Customize: {{pizza.name}}</h3>
+        </div>
+        <div class="modal-body">
+            <p><strong>BASIC:</strong></p>
+            <div class="pizzaIngredients basicIngredients">
+                <div ng-repeat="ingredient in showIngredients(pizza.ingredients)" ng-class="{removed: clicked}">
+                    <button ng-click="clicked=!clicked">
+                        {{ingredient}}
+                    </button>
+                </div>
+            </div>
+            <p><strong>EXTRA:</strong></p>
+            <div class="pizzaIngredients extraIngredients">
+                <div ng-repeat="ingredient in ingredients" ng-class="{added: clicked}">
+                    <button ng-click="clicked=!clicked">
+                        {{ingredient.label}}
+                    </button>
+                </div>
+            </div>
+            <div class="customPrice">
+                Current price: {{pizza.price | currency}}
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" ng-click="close('OK')" class="shadow" data-dismiss="modal">OK</button>
+            <button type="button" ng-click="close('Cancel')" class="shadow" data-dismiss="modal">Cancel</button>
+        </div>
+    </div>
+  </div>
+</div>
+</script>
