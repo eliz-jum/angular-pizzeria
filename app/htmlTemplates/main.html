@@ -18,8 +18,8 @@
                     </div>
                 </div>
                 <div class="pizzaButtons">
-                    <button ng-click="addPizza({id: pizza.id, name: pizza.name, price: pizza.price, quantity: 1})" class="pizzaAddButton shadow">Add</button>
-                    <button ng-click="orderPizza(basketView, {id: pizza.id, name: pizza.name, price: pizza.price, quantity: 1})" class="pizzaOrderButton shadow">Order now</button>
+                    <button ng-click="addPizza({pizza: {id: pizza.id, extraIngredients: []}, name: pizza.name, price: pizza.price, quantity: 1})" class="pizzaAddButton shadow">Add</button>
+                    <button ng-click="orderPizza(basketView, {pizza: {id: pizza.id, extraIngredients: []}, name: pizza.name, price: pizza.price, quantity: 1})" class="pizzaOrderButton shadow">Order now</button>
                 </div>
             </li>
         </ul>
@@ -28,12 +28,16 @@
         <h2>Basket</h2>
 
         <ul class="basketList">
-            <li class="flex shadow" ng-repeat="pizza in basketView track by $index">
-                <div class="basketName">{{pizza.name}}</div>
-                <div class="basketPrice">{{pizza.price | currency}}</div>
-                <input ng-click="updateTotal()" class="basketNumber" type="number" min="1" value="1" ng-model="pizza.quantity"/>
-                <button ng-click="open(pizza)" class="basketCustomiseButton">custom</button>
-                <button ng-click="removePizza(basketView, $index)" class="basketRemoveButton">&times;</button>
+            <li class="shadow" ng-repeat="pizza in basketView track by $index">
+                <div class="flex">
+                    <div class="basketName">{{pizza.name}}</div>
+                    <div class="basketPrice">{{pizza.price | currency}}</div>
+                    <input ng-click="updateTotal()" class="basketNumber" type="number" min="1" value="1" ng-model="pizza.quantity"/>
+                    <button ng-click="removePizza(basketView, $index)" class="basketRemoveButton">&times;</button>
+                </div>
+                <div class="basketExtraIngredients">
+                    <span ng-repeat="extraIngredient in pizza.pizza.extraIngredients">+ {{extraIngredient.label}} </span>
+                </div>
             </li>
         </ul>
 

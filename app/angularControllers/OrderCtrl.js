@@ -3,11 +3,17 @@ angular.module('pizzeria').controller('OrderController', function($scope, $state
     $scope.client = {};
     $scope.notes = '';
     $scope.total = basket.total;
+    $scope.extras = basket.extras;
 
 
     $scope.order = function() {
-        console.log(basket.fillListServer())
-        $scope.orderData = basket.fillListServer();
+        $scope.orderData = {
+            order: basket.fillListServer(),
+            extras: $scope.extras,
+            orderInfo: $scope.client
+        };
+        
+        console.log($scope.orderData);    
         
     	if ($scope.client.phoneNumber!=null && $scope.client.address!=null) {
     		$http.post('/order', $scope.orderData).success(function(data){
@@ -34,13 +40,14 @@ angular.module('pizzeria').controller('OrderController', function($scope, $state
 
 });
 
-angular.module('pizzeria').controller('ExtrasController', function($scope, close, $http) {
+angular.module('pizzeria').controller('ExtrasController', function($scope, close, $http, basket) {
 // when you need to close the modal, call close
     $scope.close = function(result) {
         close(result);
     }
     
     $scope.extras = [];
+    $scope.toOrder = basket.extras;
 
     $http.get('/extras').success(function(data){
         $scope.extras = data;

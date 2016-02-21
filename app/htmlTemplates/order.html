@@ -39,9 +39,14 @@
 
         <ul class="basketList" id="finalList">
             <li ng-repeat="pizza in basketView track by $index" class="flex shadow">
-                <div class="basketName">{{pizza.name}}</div>
-                <div class="basketNumber">{{pizza.quantity}} x</div>
-                <div class="basketPrice">{{pizza.price | currency}}</div>
+            	<div class="flex">
+	                <div class="basketName">{{pizza.name}}</div>
+	                <div class="basketNumber">{{pizza.quantity}} x</div>
+	                <div class="basketPrice">{{pizza.price | currency}}</div>
+                </div>
+                <div class="basketExtraIngredients">
+                	<span ng-repeat="extraIngredient in pizza.pizza.extraIngredients">+ {{extraIngredient.label}} </span>
+                </div>
             </li>
         </ul>
         <div class="total">

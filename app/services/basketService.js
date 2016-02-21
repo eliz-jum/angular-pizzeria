@@ -4,9 +4,9 @@ angular.module('pizzeria').factory('basket',function($cookies){
     function getBasketFromCookie(key) {
         if (angular.isUndefined($cookies.getObject(key))) {
             basket = {};
-            basket.listView = [];//{id, name, price quantity}
+            basket.listView = [];//{pizza{id, extraingredients}, name, price, quantity}
             basket.listServer = [];
-            basket.ingredients= [];
+            basket.extras= [];
             basket.total = 0;
             return basket;
         } else {
@@ -20,7 +20,8 @@ angular.module('pizzeria').factory('basket',function($cookies){
         var isInListView=false;
         if (this.listView.length > 0){
             this.listView.forEach(function(item, index){
-                if (item.id===pizza.id){
+                if (item.pizza.id == pizza.pizza.id &&
+            item.pizza.extraIngredients == pizza.pizza.extraIngredients){
                     isInListView=true;
                     ind = index;   
                 }
@@ -32,7 +33,7 @@ angular.module('pizzeria').factory('basket',function($cookies){
                 basket.listView[ind].quantity+=1;
             }
             else {
-                console.log("Tej pizzy nie bylo!");
+                console.log("Tej pizzy nie bylo! "+pizza.name);
                 basket.listView.push(pizza);
             }    
         }
@@ -48,10 +49,12 @@ angular.module('pizzeria').factory('basket',function($cookies){
     };
     
     basket.fillListServer = function(){
-        //console.log("basket.listView");
-        //console.log(basket.listView);
         basket.listView.forEach(function(item){
-            basket.listServer.push({id: item.id, quantity: item.quantity});
+            var ei = [];
+            item.pizza.extraIngredients.forEach(function(i) {
+                ei.push(i.id);
+            })
+            basket.listServer.push({pizza: {id: item.pizza.id, extraIngredients: ei}, quantity: item.quantity});
         });
         return this.listServer;
     };

@@ -148,11 +148,11 @@ small {
 }
 
 .basketList li {
-	flex-direction: row;
+	flex-direction: column;
 	padding: 0.2rem;
 	margin: 0.2rem 0;
 }
-.basketList li > div {
+.basketList li div div {
 	padding: 0.4rem;
 }
 .basketName {
@@ -164,18 +164,16 @@ small {
 .basketNumber {
 	width: 15%;
 }
-.basketCustomiseButton {
-    width: 20%;
-    background-color: gray;
-    margin: 0.3rem;
-}
 .basketRemoveButton {
     width: 10%;
     background-color: gray;
     margin: 0.3rem;
 }
-.basketRemoveButton:hover, .basketCustomiseButton:hover {
+.basketRemoveButton:hover {
 	background-color: hsl(0, 0%, 60%);
+}
+.basketExtraIngredients {
+	font-size: small;
 }
 
 #continueButton, #backButton {
