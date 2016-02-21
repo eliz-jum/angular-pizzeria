@@ -100,25 +100,35 @@ angular.module('pizzeria').controller('CustomController', function($scope, $http
     $scope.pizza = pizza;
     $scope.showIngredients = showIngredients;
     $scope.ingredients = ingredients;
-    $scope.extraIngredients = [];
+
+    $scope.basic = [];
+    $scope.extra = [];
+    $scope.total = pizza.price;
 
     $scope.id = "name";
     $scope.clicked = false;
 
-    $scope.addExtra = function(ingredientId) {
+    $scope.update = function() {
+        $scope.total = $scope.pizza.price;
 
-        // if ($scope.classname === "not") {
-        //     $scope.extraIngredients.push(ingredientId);
-        //     $scope.classname = "added";
-        //     console.log('added ' + ingredientId)
+        $scope.extra.forEach(function(item){
+            $scope.total += item.price;
+        });
+        
+        $scope.total = Math.round($scope.total * 100) / 100;
+        return $scope.total;
+    }
 
-        // }
-        // else {
-        //     var index = $scope.extraIngredients.indexOf(ingredientId);
-        //     if (index > -1)
-        //         $scope.extraIngredients.splice(index,1);
-        //     $scope.classname = "not";
-        // }
+    $scope.add = function(ingredient) {
+        var index = $scope.extra.indexOf(ingredient);
+        if (index > -1) {
+            $scope.extra.splice(index, 1);
+        }
+        else {
+            $scope.extra.push(ingredient);
+        }
+        console.log($scope.extra);
+        $scope.update();
     }
 
     $http.get('/extras').success(function(data){
