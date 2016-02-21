@@ -60,7 +60,7 @@
         <div class="modal-body">
             <p><strong>BASIC:</strong></p>
             <div class="pizzaIngredients basicIngredients">
-                <div ng-repeat="ingredient in showIngredients(pizza.ingredients)" ng-class="{removed: clicked}" ng-click="remove(ingredient)">
+                <div ng-repeat="ingredient in showIngredients(pizza.ingredients)" ng-class="{removed: clicked}" ng-click="toggleBasic(ingredient)">
                     <button ng-click="clicked=!clicked">
                         {{ingredient}}
                     </button>
@@ -68,7 +68,7 @@
             </div>
             <p><strong>EXTRA:</strong></p>
             <div class="pizzaIngredients extraIngredients">
-                <div ng-repeat="ingredient in ingredients" ng-class="{added: clicked}" ng-click="add(ingredient)">
+                <div ng-repeat="ingredient in ingredients" ng-class="{added: clicked}" ng-click="toggleExtra(ingredient)">
                     <button ng-click="clicked=!clicked">
                         {{ingredient.label}}: {{ingredient.price | currency}}
                     </button>

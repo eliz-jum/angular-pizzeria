@@ -5,7 +5,6 @@ angular.module('pizzeria').controller('MainController', function($scope, $state,
     $scope.total = basket.total;
     $scope.menu = [];
     var ingredients = [];
-    var extraIngredients = [];
 
     $scope.addPizza = function(pizza){
         basket.add(pizza);
@@ -81,13 +80,6 @@ angular.module('pizzeria').controller('MainController', function($scope, $state,
         console.error('http.get error in MainCtrl.js', status, data);        
     });
     
-    $http.get('/extras').success(function(data){
-        extraIngredients = data;
-        //console.log(data);
-    }).error(function(data, status) {
-        console.error('http.get error in MainCtrl.js', status, data);        
-    });
-    
 });
 
 
@@ -101,8 +93,9 @@ angular.module('pizzeria').controller('CustomController', function($scope, $http
     $scope.showIngredients = showIngredients;
     $scope.ingredients = ingredients;
 
-    $scope.basic = [];
-    $scope.extra = [];
+    $scope.toRemove = [];   // list of basic ingredients to be removed
+    $scope.toAdd = [];      // list of extra ingredients to be added
+
     $scope.total = pizza.price;
 
     $scope.id = "name";
@@ -111,7 +104,7 @@ angular.module('pizzeria').controller('CustomController', function($scope, $http
     $scope.update = function() {
         $scope.total = $scope.pizza.price;
 
-        $scope.extra.forEach(function(item){
+        $scope.toAdd.forEach(function(item){
             $scope.total += item.price;
         });
         
@@ -119,22 +112,26 @@ angular.module('pizzeria').controller('CustomController', function($scope, $http
         return $scope.total;
     }
 
-    $scope.add = function(ingredient) {
-        var index = $scope.extra.indexOf(ingredient);
+    $scope.toggleExtra = function(ingredient) {
+        var index = $scope.toAdd.indexOf(ingredient);
         if (index > -1) {
-            $scope.extra.splice(index, 1);
+            $scope.toAdd.splice(index, 1);
         }
         else {
-            $scope.extra.push(ingredient);
+            $scope.toAdd.push(ingredient);
         }
-        console.log($scope.extra);
+        console.log("toAdd: " + $scope.toAdd);
         $scope.update();
     }
 
-    $http.get('/extras').success(function(data){
-        $scope.extras = data;
-        //console.log(data);
-    }).error(function(data, status) {
-        console.error('http.get error in CustomCtrl.js', status, data);        
-    });
+    $scope.toggleBasic = function(ingredientId) {
+        var index = $scope.toRemove.indexOf(ingredientId);
+        if (index > -1) {
+            $scope.toRemove.splice(index, 1);
+        }
+        else {
+            $scope.toRemove.push(ingredientId);
+        }
+        console.log("toRemove: " + $scope.toRemove)
+    }
 });
