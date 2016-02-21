@@ -54,7 +54,7 @@ angular.module('pizzeria').factory('basket',function($cookies){
             item.pizza.extraIngredients.forEach(function(i) {
                 ei.push(i.id);
             })
-            basket.listServer.push({pizza: {id: item.pizza.id, extraIngredients: ei}, quantity: item.quantity});
+            basket.listServer.push({id: item.pizza.id, extraIngredients: item.pizza.extraIngredients, quantity: item.quantity});
         });
         return this.listServer;
     };

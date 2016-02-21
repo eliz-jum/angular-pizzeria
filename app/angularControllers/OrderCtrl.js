@@ -1,22 +1,21 @@
 angular.module('pizzeria').controller('OrderController', function($scope, $state, $stateParams, $http, basket, ModalService){
     $scope.basketView = basket.listView;
     $scope.client = {};
-    $scope.notes = '';
     $scope.total = basket.total;
     $scope.extras = basket.extras;
 
 
     $scope.order = function() {
-        $scope.orderData = {
+        var orderData = {
             order: basket.fillListServer(),
             extras: $scope.extras,
             orderInfo: $scope.client
         };
-        
-        console.log($scope.orderData);    
+
+        console.log(orderData);    
         
     	if ($scope.client.phoneNumber!=null && $scope.client.address!=null) {
-    		$http.post('/order', $scope.orderData).success(function(data){
+    		$http.post('/order', orderData).success(function(data){
     			var id = data.id;
 				$state.go('status', {'orderId': id});
                 basket.clearBasket();
