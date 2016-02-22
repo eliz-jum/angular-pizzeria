@@ -6,9 +6,26 @@ a potem układem na stronie*/
 }
 body {
 	margin: 0;
+	font-family: Arial, sans-serif;
+	background-color: hsl(41, 100%, 80%);
+}
+
+a {
+	text-decoration: none;
+}
+
+button {
+	color: white;
+	background-color: hsl(145, 90%, 35%);
+	border: none;
+	box-shadow: 1px 1px 1px ;
+}
+button:hover {
+	background-color: hsl(145, 90%, 40%);
 }
 
 h2 {
+	text-transform: uppercase;
 	margin: 1rem;
 }
 
@@ -16,24 +33,13 @@ h3 {
     margin: 0;
 }
 
+input {
+	border: solid 1px gray;
+}
+
 ul {
     list-style: none;
     padding: 0;
-}
-
-.flex {
-	display: flex;
-	flex-direction: row;
-}
-
-#site {
-	width: 60%;
-	margin: 0 auto;
-    border: solid 1px gray;
-}
-
-#banner {
-	height: 10em;
 }
 
 li {
@@ -43,23 +49,66 @@ li {
 	margin: 0;
 }
 
+p {
+	margin-bottom: 0;
+}
+
+small {
+	color: gray;
+}
+
+.flex {
+	display: flex;
+	flex-direction: row;
+}
+
+.shadow {
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+#site {
+	width: 65%;
+	margin: 0 auto;
+	background-color: white;
+	box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.16);
+}
+
+#banner {
+	height: 12rem;
+	overflow: hidden;
+	position: relative;
+}
+#navigation {
+	position: absolute;
+	display: flex;
+	bottom: 0;
+	right: 0;
+	/*width: 100%;*/
+}
+#navigation > div {
+	margin: 0.5rem;
+	padding: 0.2rem;
+	background-color: rgba(255, 255, 255, 0.6);
+}
+
 .left {
-	width: 70%;
+	width: 65%;
 }
 #pizzaList li {
 	margin: 1rem;
+	background-color: white;
 }
 .pizzaPicture {
-    width: 8rem;
-    height: 8rem;
-    border: solid 1px gray;
+	padding: 1rem;
 }
 .pizzaDetails {
-	width: 30rem;
-    border: solid 1px gray;
+	width: 35rem;
 }
 .pizzaDetails > * {
 	margin: 0.5rem;
+}
+.pizzaTitle {
+	text-transform: uppercase;
 }
 .pizzaIngredients {
 	display: flex;
@@ -67,22 +116,68 @@ li {
 	flex-wrap: wrap;
 }
 .pizzaIngredients div{
+	font-size: small;
+	color: white;
+	background-color: #F26F67;
 	margin-right: 0.5rem;
 	margin-bottom: 0.5rem;
+	padding: 0.2rem 0.4rem;
+	border-radius: 0.2rem;
+}
+.pizzaButtons {
+	padding: 1.5rem 0;
+}
+.pizzaButtons button {
+	width: 4rem;
+	height: 3rem;
+	margin: 0.2rem;
 }
 
 .basket {
-	width: 30%;
+	width: 35%;
+	padding: 1rem;
+}
+.basket h2 {
+	text-align: center;
+}
+.empty {
+	text-align: center;
+}
+.total {
+	float: right;
 }
 
-#basketList li {
-	flex-direction: row;
+.basketList li {
+	flex-direction: column;
+	padding: 0.2rem;
+	margin: 0.2rem 0;
+}
+.basketList li div div {
+	padding: 0.4rem;
 }
 .basketName {
-    width: 55%;
+    width: 45%;
 }
-.basketPrice, .basketNumber, .basketRemoveButton {
-    width: 15%;
+.basketPrice {
+	width: 20%;
+} 
+.basketNumber {
+	width: 15%;
+}
+.basketRemoveButton {
+    width: 10%;
+    background-color: gray;
+    margin: 0.3rem;
+}
+.basketRemoveButton:hover {
+	background-color: hsl(0, 0%, 60%);
+}
+.basketExtraIngredients {
+	font-size: small;
+}
+
+#continueButton, #backButton {
+	width: 5rem;
 }
 
 #orderForm {
@@ -95,8 +190,97 @@ li {
 	color: red;
 }
 
-#contact {
-	margin: 0 1rem;
+#finalList .basketName{
+	width: 70%;
+}
+#finalList .basketNumber{
+	width: 10%;
+	text-align: center;
 }
 
+#backButton {
+	margin: 0.5rem 0;
+}
 
+#status, #contact {
+	margin: 1rem;
+	padding-bottom: 1rem;
+}
+
+.modal {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 5% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+}
+.modal-footer {
+	margin-left: 75%;
+}
+.close {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.basicIngredients div{
+	padding: 0;
+	overflow: hidden;
+}
+
+.basicIngredients button {
+	font-size: small;
+	color: white;
+	background-color: #F26F67;
+	border: none;
+	box-shadow: none ;
+}
+.basicIngredients .removed * {
+	background-color: #bfbfbf;
+}
+.basicIngredients div:hover, .basicIngredients button:hover {
+	background-color: #ccc;
+}
+
+.extraIngredients div{
+	background-color: #bfbfbf;
+	padding: 0;
+	overflow: hidden;
+}
+
+.extraIngredients button {
+	font-size: small;
+	color: white;
+	background-color: #bfbfbf;
+	border: none;
+	box-shadow: none;
+}
+.extraIngredients .added * {
+	background-color: #F26F67;
+}
+.extraIngredients div:hover, .extraIngredients button:hover {
+	background-color: #f37972;
+}
+
+.customPrice {
+	margin-top: 0.5em;
+	font-weight: bold;
+}
+
+.extraTitle {
+	width: 85%;
+}
+.extraPrice {
+	width: 15%;
+}

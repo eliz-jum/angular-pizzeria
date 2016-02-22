@@ -29,7 +29,7 @@
 			</div>
 
 			Notes:<br/>
-			<input type="text" ng-model="notes" name="notes"/>
+			<input type="text" ng-model="client.notes" name="notes"/>
 			<br/>
 			<a><input type="submit" value="Order" ng-disabled="form.$invalid" ng-click="order()"></a>
 		</form>
@@ -37,16 +37,60 @@
 	<div class="basket">
         <h2>Basket</h2>
 
-        <ul id="finalBasketList">
-            <li ng-repeat="pizza in basketView track by $index" class="flex">
-                <div class="basketName">{{pizza.name}}</div>
-                <div class="basketPrice">{{pizza.price | currency}}</div>
-                <div class="basketNumber">{{pizza.quantity}}</div>
+        <ul class="basketList" id="finalList">
+            <li ng-repeat="pizza in basketView track by $index" class="flex shadow">
+            	<div class="flex">
+	                <div class="basketName">{{pizza.name}}</div>
+	                <div class="basketNumber">{{pizza.quantity}} x</div>
+	                <div class="basketPrice">{{pizza.price | currency}}</div>
+                </div>
+                <div class="basketExtraIngredients">
+                	<span ng-repeat="extraIngredient in pizza.pizza.extraIngredients">+ {{extraIngredient.label}} </span>
+                </div>
+            </li>
+            <li ng-repeat="extra in extras" id="extrasList">
+            	<div class="flex">
+	                <div class="extraTitle">{{extra.label}}</div>
+	                <div class="extraPrice">{{extra.price | currency}}</div>
+                </div>
             </li>
         </ul>
-        <div>
+        <div class="total">
             Total: {{total | currency}}
         </div>
-        <a ui-sref="main"><button>Back</button></a>
+        <button class="shadow" ng-click="open()">Extras</button>
+        <div>
+        	<a ui-sref="main"><button id="backButton" class="shadow">Back</button></a>
+    	</div>
     </div>
 </div>
+
+<!-- The actual modal template, just a bit o bootstrap -->
+<script type="text/ng-template" id="extras.html">
+ <div class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      	<div class="modal-header">
+	        <button class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h3 class="modal-title pizzaTitle">Add extras</h4>
+      	</div>
+      	<div class="modal-body">
+	        <div class="pizzaIngredients extraIngredients">
+                <div ng-repeat="item in extras" ng-class="{added: clicked}" ng-click="toggle(item)">
+                    <button ng-click="clicked=!clicked">
+                        {{item.label}}: {{item.price | currency}}
+                    </button>
+                </div>
+            </div>
+            <div class="customPrice">
+                Current price: {{total | currency}}
+            </div>
+      	</div>
+      	<div class="modal-footer">
+        	<button type="button" ng-click="close('OK')" class="shadow" data-dismiss="modal">OK</button>
+        	<button type="button" ng-click="close('Cancel')" class="shadow" data-dismiss="modal">Cancel</button>
+      	</div>
+    </div>
+  </div>
+</div>
+</script>

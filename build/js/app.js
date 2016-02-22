@@ -1,4 +1,4 @@
-angular.module('pizzeria', ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
+angular.module('pizzeria', ['ui.router','ngCookies','angularModalService']).config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('main', {
             url: '/main',

@@ -84,14 +84,11 @@ angular.module('pizzeria').controller('ExtrasController', function($scope, close
     };
 
     $scope.updateTotal = function() {
-        console.log("na początku uT:"+$scope.total);
         update();
         $scope.total = basket.total;
         $scope.toOrder.forEach(function(item) {
             $scope.total += item.price;
-            console.log("e+" + item.price)
-        })
-        console.log("na końcu uT:"+$scope.total);        
+        })      
     }
 
     $http.get('/extras').success(function(data){

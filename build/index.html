@@ -14,8 +14,10 @@
 </head>
 <body>
     <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>-->
+	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>-->
     <script type="text/javascript" src="libs/angular.min.js"></script>
 	<script type="text/javascript" src="libs/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="libs/angular-modal-service.js"></script>
 	<script type="text/javascript" src="libs/angular-cookies.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="angularControllers/OrderCtrl.js"></script>
@@ -25,7 +27,13 @@
 	<script type="text/javascript" src="services/basketService.js"></script>
 
 	<div id="site">
-		<div id="banner">Banner</div>
+		<div id="banner" class="shadow">
+			<img src="./img/banner.jpg"/>
+			<div id="navigation">
+				<div id="homeButton" class="shadow"><a ui-sref="main">Menu</a></div>
+				<div id="contactButton" class="shadow"><a ui-sref="contact">Contact</a></div>
+			</div>
+		</div>
         <div ui-view></div>
 	</div>
 
