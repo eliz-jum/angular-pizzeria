@@ -48,6 +48,12 @@
                 	<span ng-repeat="extraIngredient in pizza.pizza.extraIngredients">+ {{extraIngredient.label}} </span>
                 </div>
             </li>
+            <li ng-repeat="extra in extras" id="extrasList">
+            	<div class="flex">
+	                <div class="extraTitle">{{extra.label}}</div>
+	                <div class="extraPrice">{{extra.price | currency}}</div>
+                </div>
+            </li>
         </ul>
         <div class="total">
             Total: {{total | currency}}
@@ -66,23 +72,19 @@
     <div class="modal-content">
       	<div class="modal-header">
 	        <button class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
-	        <h3 class="modal-title">Add extras</h4>
+	        <h3 class="modal-title pizzaTitle">Add extras</h4>
       	</div>
       	<div class="modal-body">
-	    	<ul id="extrasList">
-	            <li ng-repeat="item in extras" class="shadow flex">
-
-	                <h4 class="extraTitle">
-	                    {{item.label}}
-	                </h4>
-	                <div class="extraPrice">
-	                    {{item.price | currency}}
-	                </div>
-	                <div class="addExtraButton">
-	                    <button ng-click="toggle(item.id)" class="pizzaAddButton shadow">Add</button>
-	                </div>
-	            </li>
-	        </ul>
+	        <div class="pizzaIngredients extraIngredients">
+                <div ng-repeat="item in extras" ng-class="{added: clicked}" ng-click="toggle(item)">
+                    <button ng-click="clicked=!clicked">
+                        {{item.label}}: {{item.price | currency}}
+                    </button>
+                </div>
+            </div>
+            <div class="customPrice">
+                Current price: {{total | currency}}
+            </div>
       	</div>
       	<div class="modal-footer">
         	<button type="button" ng-click="close('OK')" class="shadow" data-dismiss="modal">OK</button>

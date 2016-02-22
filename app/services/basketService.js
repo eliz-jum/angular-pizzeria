@@ -62,6 +62,7 @@ angular.module('pizzeria').factory('basket',function($cookies){
     basket.clearBasket = function(){
         basket.listView=[];
         basket.listServer=[];
+        basket.extras=[];
         basket.total = 0;
         $cookies.remove(basketCookieKey);
         console.log("remove cookie: "+$cookies.getObject(basketCookieKey, basket));
@@ -73,6 +74,9 @@ angular.module('pizzeria').factory('basket',function($cookies){
         basket.listView.forEach(function(item){
             basket.total+=item.price*item.quantity;
         });
+        basket.extras.forEach(function(item){
+            basket.total+=item.price;
+        })
         basket.total = Math.round(basket.total * 100) / 100;
         $cookies.putObject(basketCookieKey, basket);
         console.log("add cookie: "+$cookies.getObject(basketCookieKey, basket));

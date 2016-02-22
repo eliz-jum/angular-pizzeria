@@ -278,19 +278,9 @@ small {
 	font-weight: bold;
 }
 
-#extrasList li {
-	width: 90%;
-	margin: 0.4rem 1rem;
-}
-#extrasList li > * {
-	margin: 0.5rem;
-}
 .extraTitle {
-	width: 50%;
+	width: 85%;
 }
 .extraPrice {
-	width: 30%;
-}
-.addExtraButton {
-	width: 10%;
+	width: 15%;
 }
